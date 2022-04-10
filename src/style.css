@@ -33,10 +33,26 @@ footer{
     gap:10px;
     align-items: center;
 }
+.user-container #follow-container{
+    display: flex;
+    gap:10px;
+}
+#follow-container img{
+    width:20px;
+    height:20px;
+}
+.follow-icons{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
 .user-container #user-pic{
-    width:350px;
-    height: 350px;;
+    width:250px;
+    height:250px;;
     border-radius:100%;
+}
+.user-container #user-name{
+    font-size:20px;
 }
 .user-container #user-bio{
     font-size:19px;
@@ -64,17 +80,18 @@ footer{
     }
 
     .user-container{
-        padding:0px;
+        padding-top:20px;
     }
 
     .user-container #user-pic{
-        width:250px;
-        height: 250px;;
+        width:150px;
+        height: 150px;;
         border-radius:100%;
     }
     .user-container #user-bio{
-        font-size:19px;
+        font-size:15px;
         font-weight: bold;
+        inline-size: 350px;
     }
     
     .user-container #serach-input{

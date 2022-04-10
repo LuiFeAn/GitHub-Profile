@@ -5,6 +5,8 @@ const userBio = document.querySelector("#user-bio");
 const serachInput = document.querySelector("#serach-input");
 const serachButton = document.querySelector("#serach-button");
 const userName = document.querySelector("#user-name");
+const userFollowers = document.querySelector("#user-followers");
+const userFollowing = document.querySelector("#user-following");
 
 const App = ()=>{
     let user = null;
@@ -17,19 +19,20 @@ const App = ()=>{
             console.log(err);
         }
     }
-    const UpdateInfos = (username,userpic,userbio)=>{
-        userName.innerHTML = username;
-        userPic.setAttribute("src",userpic);
-        userBio.innerHTML = userbio;
+    const UpdateInfos = (user,pic,bio,followers,following)=>{
+        userName.innerHTML = user;
+        userPic.setAttribute("src",pic);
+        userBio.innerHTML = bio;
+        userFollowers.innerHTML = `${followers} Seguidores`;
+        userFollowing.innerHTML = `${following} Seguindo`;
     }
     const SearchUser = async (inputvalue)=>{
         user = await GetUser(inputvalue);
-        serachInput.value = '';
-        
-        if(user.user_bio){
-            UpdateInfos(null,user.avatar_url,user.bio);
+        console.log(user);
+        if(user.name){
+            UpdateInfos(user.name,user.avatar_url,user.bio,user.followers,user.following);
         }else{
-            UpdateInfos(`Usuário ${inputvalue} não encontrado`,"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",null);
+            UpdateInfos(`Usuário ${inputvalue} não encontrado`,"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",null,"","","");
         }
     }
     const SetUser = ()=>{
